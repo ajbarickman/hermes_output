@@ -1,1 +1,507 @@
-File unchanged since last read. The content from the earlier read_file result in this conversation is still current — refer to that instead of re-reading.
+<div class="day-section">
+            <div class="day-header">
+                <h2>Monday, April 06, 2026</h2>
+                <div class="day-summary">
+                    <div class="summary-item">
+                        <span class="summary-value">2500</span>
+                        <span class="summary-label">Calories</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-value">95.4g</span>
+                        <span class="summary-label">Protein</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-value">290.7g</span>
+                        <span class="summary-label">Carbs</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-value">95.6g</span>
+                        <span class="summary-label">Fat</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-content">
+                <div class="nutrition-section">
+                    <h3 class="section-title">🍽️ Nutrition Details</h3>
+                    <table class="nutrition-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Meal</th>
+                                <th>Description</th>
+                                <th>Calories</th>
+                                <th>Protein (g)</th>
+                                <th>Carbs (g)</th>
+                                <th>Fat (g)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>04:51</td>
+                                <td><span class="badge">meal</span></td>
+                                <td>Four flour tortillas with approximately 1.5 tbsp refried beans and 1 tbsp shredded cheddar each (quesadillas)</td>
+                                <td>656</td>
+                                <td>31</td>
+                                <td>115</td>
+                                <td>25</td>
+                            </tr>
+
+                            <tr>
+                                <td>15:52</td>
+                                <td><span class="badge">breakfast</span></td>
+                                <td>El Monterey Signature Egg, Sausage, Seasoned Potatoes & Cheese Burrito (1 burrito)</td>
+                                <td>290</td>
+                                <td>11</td>
+                                <td>34</td>
+                                <td>12</td>
+                            </tr>
+
+                            <tr>
+                                <td>15:58</td>
+                                <td><span class="badge">beverage</span></td>
+                                <td>Rockstar Sugar Free Energy Drink (16oz can)</td>
+                                <td>20</td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>0</td>
+                            </tr>
+
+                            <tr>
+                                <td>18:15</td>
+                                <td><span class="badge">exercise</span></td>
+                                <td>Cycling ride on Intervals.icu - 10.05 miles, 30:29 duration, Avg power 171w, NP 192w</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+
+                            <tr>
+                                <td>18:39</td>
+                                <td><span class="badge">lunch</span></td>
+                                <td>El Monterey Beef & Bean Burritos (2 burritos) - lunch</td>
+                                <td>620</td>
+                                <td>18</td>
+                                <td>76</td>
+                                <td>26</td>
+                            </tr>
+
+                            <tr>
+                                <td>21:00</td>
+                                <td><span class="badge">exercise</span></td>
+                                <td>Stand-up paddleboarding (SUP) - American River/Folsom Lake, 1.14 miles, 45:05 duration, avg speed 1.9 mph</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+
+                            <tr>
+                                <td>01:57</td>
+                                <td><span class="badge">dinner</span></td>
+                                <td>Beefy Burritos (1/3 serving of recipe) - dinner</td>
+                                <td>554</td>
+                                <td>35.4</td>
+                                <td>26.7</td>
+                                <td>32.6</td>
+                            </tr>
+
+                            <tr>
+                                <td>03:24</td>
+                                <td><span class="badge">beverage</span></td>
+                                <td>VMC Margarita (2 cans) - with dinner</td>
+                                <td>360</td>
+                                <td>0</td>
+                                <td>36</td>
+                                <td>0</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="metrics-section">
+                    <h3 class="section-title">📊 Nutrition vs Targets</h3>
+                    <div class="metric-card">
+                        <div class="metric-title">Calories</div>
+                        <div class="metric-value">' + str(int(cal_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_cal) + ' kcal target</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Protein</div>
+                        <div class="metric-value">' + str(int(pro_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_pro) + 'g target</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Carbohydrates</div>
+                        <div class="metric-value">' + str(int(carbs_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_carbs) + 'g target</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Fat</div>
+                        <div class="metric-value">' + str(int(fat_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_fat) + 'g target</div>
+                    </div>
+                </div>
+
+                <div class="analysis-box">
+                    <h4>🔍 Analysis</h4>
+                    <p>Solid nutrition foundation with good carbohydrate loading for training days. Protein intake is solid but could be slightly optimized for muscle recovery.</p>
+                </div>
+                <div class="advice-box">
+                    <h4>💡 AOS Recommendations</h4>
+                    <p>Consider adding a post-workout protein shake on training days to hit the 143g protein target. The high carb intake is excellent for glycogen replenishment - perfect for your 6-9 hour weekly cycling volume.</p>
+                </div>
+
+                <div class="metrics-section">
+                    <h3 class="section-title">⏤⏤ Recovery Metrics (Ultrahuman) ⏤⏤</h3>
+                    <div class="loading">Waiting for overnight Ultrahuman sync...</div>
+                </div>
+                
+                <div class="aos-insight">
+                    <h4>🎯 Daily AOS Focus</h4>
+                    <p>Today's priority is consistent data collection. Complete logging enables precise correlations between nutrition, sleep quality, and recovery metrics.</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer">
+            <p>Athlete Optimization System • Powered by Hermes Agent</p>
+            <p>Last updated: 2026-04-08 22:57:01 • Data-driven performance optimization</p>
+            <p><a href="mailto:andrew@example.com">Contact Support</a> | <a href="#" onclick="window.location.reload()">Refresh Data</a></p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-refresh every 5 minutes to show new data
+        setTimeout(() => {
+            window.location.reload();
+        }, 300000);
+    </script>
+</body>
+</html>
+
+        <div class="day-section">
+            <div class="day-header">
+                <h2>Tuesday, April 07, 2026</h2>
+                <div class="day-summary">
+                    <div class="summary-item">
+                        <span class="summary-value">2070</span>
+                        <span class="summary-label">Calories</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-value">102.5g</span>
+                        <span class="summary-label">Protein</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-value">212g</span>
+                        <span class="summary-label">Carbs</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-value">76.0g</span>
+                        <span class="summary-label">Fat</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-content">
+                <div class="nutrition-section">
+                    <h3 class="section-title">🍽️ Nutrition Details</h3>
+                    <table class="nutrition-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Meal</th>
+                                <th>Description</th>
+                                <th>Calories</th>
+                                <th>Protein (g)</th>
+                                <th>Carbs (g)</th>
+                                <th>Fat (g)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>14:24</td>
+                                <td><span class="badge">breakfast</span></td>
+                                <td>El Monterey Signature Egg, Sausage, Seasoned Potatoes & Cheese Burrito (1 burrito) - same as yesterday's breakfast</td>
+                                <td>290</td>
+                                <td>11</td>
+                                <td>34</td>
+                                <td>12</td>
+                            </tr>
+
+                            <tr>
+                                <td>19:30</td>
+                                <td><span class="badge">lunch</span></td>
+                                <td>Hormel Chili Hot with Beans (15oz can)</td>
+                                <td>460</td>
+                                <td>27</td>
+                                <td>57</td>
+                                <td>14</td>
+                            </tr>
+
+                            <tr>
+                                <td>19:35</td>
+                                <td><span class="badge">meal</span></td>
+                                <td>Two flour tortillas (6-inch)</td>
+                                <td>110</td>
+                                <td>2.5</td>
+                                <td>22</td>
+                                <td>3</td>
+                            </tr>
+
+                            <tr>
+                                <td>01:47</td>
+                                <td><span class="badge">exercise</span></td>
+                                <td>Zwift - TTT: Zwift Racing League: Legends Route - Open Lilac Dev League GROUP 1 (C) - Indoor race</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+
+                            <tr>
+                                <td>01:27</td>
+                                <td><span class="badge">exercise</span></td>
+                                <td>Zwift warm-up ride - Easy spinning before TTT race</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+
+                            <tr>
+                                <td>02:20</td>
+                                <td><span class="badge">meal</span></td>
+                                <td>Protein shake: 1 scoop Optimum Nutrition Gold Standard Whey + 8 oz low-fat chocolate milk</td>
+                                <td>270</td>
+                                <td>32</td>
+                                <td>29</td>
+                                <td>4.0</td>
+                            </tr>
+
+                            <tr>
+                                <td>02:45</td>
+                                <td><span class="badge">dinner</span></td>
+                                <td>Two Johnsonville Smoked Brats with two brat buns</td>
+                                <td>700</td>
+                                <td>28</td>
+                                <td>54</td>
+                                <td>43</td>
+                            </tr>
+
+                            <tr>
+                                <td>03:00</td>
+                                <td><span class="badge">beverage</span></td>
+                                <td>Elysian Space Dust IPA (12 oz bottle, 8.2% ABV)</td>
+                                <td>240</td>
+                                <td>2</td>
+                                <td>16</td>
+                                <td>0</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="metrics-section">
+                    <h3 class="section-title">📊 Nutrition vs Targets</h3>
+                    <div class="metric-card">
+                        <div class="metric-title">Calories</div>
+                        <div class="metric-value">' + str(int(cal_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_cal) + ' kcal target</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Protein</div>
+                        <div class="metric-value">' + str(int(pro_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_pro) + 'g target</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Carbohydrates</div>
+                        <div class="metric-value">' + str(int(carbs_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_carbs) + 'g target</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Fat</div>
+                        <div class="metric-value">' + str(int(fat_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_fat) + 'g target</div>
+                    </div>
+                </div>
+
+                <div class="analysis-box">
+                    <h4>🔍 Analysis</h4>
+                    <p>Good protein intake exceeding target, but lower overall calories may indicate a lighter training day or unintentional under-eating.</p>
+                </div>
+                <div class="advice-box">
+                    <h4>💡 AOS Recommendations</h4>
+                    <p>Maintain the strong protein focus. Consider adding healthy fats (avocado, nuts, olive oil) to reach caloric needs without feeling overly full. Monitor energy levels for afternoon training sessions.</p>
+                </div>
+
+                <div class="metrics-section">
+                    <h3 class="section-title">⏤⏤ Recovery Metrics (Ultrahuman) ⏤⏤</h3>
+                    <div class="loading">Waiting for overnight Ultrahuman sync...</div>
+                </div>
+                
+                <div class="aos-insight">
+                    <h4>🎯 Daily AOS Focus</h4>
+                    <p>Today's priority is consistent data collection. Complete logging enables precise correlations between nutrition, sleep quality, and recovery metrics.</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer">
+            <p>Athlete Optimization System • Powered by Hermes Agent</p>
+            <p>Last updated: 2026-04-08 22:57:01 • Data-driven performance optimization</p>
+            <p><a href="mailto:andrew@example.com">Contact Support</a> | <a href="#" onclick="window.location.reload()">Refresh Data</a></p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-refresh every 5 minutes to show new data
+        setTimeout(() => {
+            window.location.reload();
+        }, 300000);
+    </script>
+</body>
+</html>
+
+        <div class="day-section">
+            <div class="day-header">
+                <h2>Wednesday, April 08, 2026</h2>
+                <div class="day-summary">
+                    <div class="summary-item">
+                        <span class="summary-value">975</span>
+                        <span class="summary-label">Calories</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-value">67g</span>
+                        <span class="summary-label">Protein</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-value">83.5g</span>
+                        <span class="summary-label">Carbs</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-value">45g</span>
+                        <span class="summary-label">Fat</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-content">
+                <div class="nutrition-section">
+                    <h3 class="section-title">🍽️ Nutrition Details</h3>
+                    <table class="nutrition-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Meal</th>
+                                <th>Description</th>
+                                <th>Calories</th>
+                                <th>Protein (g)</th>
+                                <th>Carbs (g)</th>
+                                <th>Fat (g)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>07:30</td>
+                                <td><span class="badge">breakfast</span></td>
+                                <td>Three eggs with 2 oz ham and 2 tablespoons milk - breakfast</td>
+                                <td>295</td>
+                                <td>31</td>
+                                <td>5.5</td>
+                                <td>18</td>
+                            </tr>
+
+                            <tr>
+                                <td>18:49</td>
+                                <td><span class="badge">lunch</span></td>
+                                <td>Homemade bagel pizza: half bagel with pizza sauce, mozzarella cheese, and 8 pepperoni slices (4 per half)</td>
+                                <td>660</td>
+                                <td>36</td>
+                                <td>75</td>
+                                <td>27</td>
+                            </tr>
+
+                            <tr>
+                                <td>14:45</td>
+                                <td><span class="badge">beverage</span></td>
+                                <td>Rockstar Sugar Free Energy Drink (16oz can)</td>
+                                <td>20</td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>0</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="metrics-section">
+                    <h3 class="section-title">📊 Nutrition vs Targets</h3>
+                    <div class="metric-card">
+                        <div class="metric-title">Calories</div>
+                        <div class="metric-value">' + str(int(cal_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_cal) + ' kcal target</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Protein</div>
+                        <div class="metric-value">' + str(int(pro_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_pro) + 'g target</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Carbohydrates</div>
+                        <div class="metric-value">' + str(int(carbs_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_carbs) + 'g target</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Fat</div>
+                        <div class="metric-value">' + str(int(fat_pct)) + '%</div>
+                        <div class="metric-unit">of ' + str(target_fat) + 'g target</div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>🔍 Analysis</h4>
+                    <p>Incomplete data - only morning entries logged. Significant caloric deficit compared to targets.</p>
+                </div>
+                <div class="advice-box">
+                    <h4>💡 AOS Recommendations</h4>
+                    <p>Complete your food logging for today to get accurate AOS analysis. Remember to log all meals, snacks, and hydration for optimal insights.</p>
+                </div>
+
+                <div class="metrics-section">
+                    <h3 class="section-title">⏤⏤ Recovery Metrics (Ultrahuman) ⏤⏤</h3>
+                    <div class="loading">Waiting for overnight Ultrahuman sync...</div>
+                </div>
+                
+                <div class="aos-insight">
+                    <h4>🎯 Daily AOS Focus</h4>
+                    <p>Today's priority is consistent data collection. Complete logging enables precise correlations between nutrition, sleep quality, and recovery metrics.</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer">
+            <p>Athlete Optimization System • Powered by Hermes Agent</p>
+            <p>Last updated: 2026-04-08 22:57:01 • Data-driven performance optimization</p>
+            <p><a href="mailto:andrew@example.com">Contact Support</a> | <a href="#" onclick="window.location.reload()">Refresh Data</a></p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-refresh every 5 minutes to show new data
+        setTimeout(() => {
+            window.location.reload();
+        }, 300000);
+    </script>
+</body>
+</html>
