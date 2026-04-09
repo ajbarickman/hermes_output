@@ -593,7 +593,34 @@
       </div>
     </div>
 
-    <!-- Training Zones -->
+    <!-- Daily Focus -->
+    <div class="card">
+      <div class="card-label"><span class="dot pulse" style="background: var(--accent)"></span> DAILY CHECKLIST</div>
+      <div class="stagger">
+        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">🚴 Training</span>
+          <span style="font-size: 0.75rem; color: var(--accent3); font-weight: 500;">Zone 2 + tempo efforts</span>
+        </div>
+        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">🥗 Protein Target</span>
+          <span style="font-size: 0.75rem; color: var(--accent); font-weight: 500;">~130g progressive</span>
+        </div>
+        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">🔥 Calories</span>
+          <span style="font-size: 0.75rem; color: var(--accent); font-weight: 500;">BMR 1,844 + training</span>
+        </div>
+        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">👨‍👦 Christian</span>
+          <span style="font-size: 0.75rem; color: var(--accent3); font-weight: 500;">All grades ✅</span>
+        </div>
+        <div style="padding: 0.5rem 0; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">💊 Health</span>
+          <span style="font-size: 0.75rem; color: var(--accent2); font-weight: 500;">Monitoring active</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Power Zones -->
     <div class="card">
       <div class="card-label"><span class="dot" style="background: gold"></span> POWER ZONES</div>
       <div class="zone-bar">
@@ -623,28 +650,72 @@
 
     <!-- Health Check -->
     <div class="card">
-      <div class="card-label"><span class="dot" style="background: var(--accent2)"></span> DAILY FOCUS</div>
-      <div class="stagger">
-        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 0.85rem;">🚴 Training</span>
-          <span style="font-size: 0.75rem; color: var(--accent3); font-weight: 500;">Zone 2, 60-90 min</span>
+      <div class="card-label"><span class="dot" style="background: var(--accent2)"></span> YOUR METRICS — APRIL 9</div>
+      <!-- Real Ultrahuman Data -->
+      <div class="metric-grid" style="margin-bottom: 1rem;">
+        <div class="metric">
+          <div class="value gold">84</div>
+          <div class="unit">Sleep Score · Optimal</div>
         </div>
-        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 0.85rem;">🥗 Protein Target</span>
-          <span style="font-size: 0.75rem; color: var(--accent); font-weight: 500;">~130g progressive</span>
+        <div class="metric">
+          <div class="value blue">72</div>
+          <div class="unit">Recovery Index</div>
         </div>
-        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 0.85rem;">💧 Calories</span>
-          <span style="font-size: 0.75rem; color: var(--accent); font-weight: 500;">BMR 1844 + training</span>
+        <div class="metric">
+          <div class="value green">50</div>
+          <div class="unit">VO₂ Max</div>
         </div>
-        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 0.85rem;">👨‍👦 Christian</span>
-          <span style="font-size: 0.75rem; color: var(--accent3); font-weight: 500;">All grades ✅</span>
+      </div>
+      <div class="metric-grid" style="margin-bottom: 1.25rem;">
+        <div class="metric">
+          <div class="value green">45 <span style="font-size:0.6rem;opacity:0.5;">bpm</span></div>
+          <div class="unit">RHR · On Baseline</div>
         </div>
-        <div style="padding: 0.5rem 0; display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 0.85rem;">💊 Health</span>
-          <span style="font-size: 0.75rem; color: var(--accent2); font-weight: 500;">Monitoring active</span>
+        <div class="metric">
+          <div class="value blue">8h 40m</div>
+          <div class="unit">Total Sleep</div>
         </div>
+        <div class="metric">
+          <div class="value gold">98%</div>
+          <div class="unit">SpO₂</div>
+        </div>
+      </div>
+      <!-- Sleep breakdown mini bars -->
+      <div style="font-size: 0.75rem; color: #888; margin-bottom: 0.5rem;">Sleep Composition:</div>
+      <div style="display: flex; gap: 4px; margin-bottom: 1rem;">
+        <div style="flex: 3.5; background: rgba(79,195,247,0.3); border-radius: 4px; padding: 0.4rem; text-align: center; font-size: 0.7rem;">Light: 5h 45m</div>
+        <div style="flex: 1.25; background: rgba(102,187,106,0.3); border-radius: 4px; padding: 0.4rem; text-align: center; font-size: 0.7rem;">Deep: 1h 15m</div>
+        <div style="flex: 1.65; background: rgba(245,166,35,0.3); border-radius: 4px; padding: 0.4rem; text-align: center; font-size: 0.7rem;">REM: 1h 40m</div>
+      </div>
+      <div class="metric-grid">
+        <div class="metric">
+          <div class="value green">94%</div>
+          <div class="unit">Efficiency</div>
+        </div>
+        <div class="metric">
+          <div class="value gold">3 <span style="font-size:0.6rem;opacity:0.5;">cycles</span></div>
+          <div class="unit">Full Sleep Cycles</div>
+        </div>
+        <div class="metric">
+          <div class="value green">38°C</div>
+          <div class="unit">Avg Body Temp</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.25rem; padding: 0.75rem; background: rgba(102,187,106,0.1); border-radius: 8px; border-left: 3px solid var(--accent3); font-size: 0.8rem; color: var(--accent3); line-height: 1.5;">
+        ✅ <strong>Excellent recovery night.</strong> 8h40m of quality sleep, RHR on your 46 bpm baseline. Recovery index 72 is solid. You're well-rested for today's training.
+      </div>
+    </div>
+
+    <!-- Training Focus -->
+    <div class="card">
+      <div class="card-label"><span class="dot" style="background: var(--accent)"></span> TODAY'S RIDING INSIGHT</div>
+      <div class="cycling-insight">
+        <strong>Zone 2 is your secret weapon.</strong><br>
+        At 55, your body recovers slower but adapts just as well. Zone 2 (65-75% FTP) builds mitochondrial density and fat oxidation without accumulating the fatigue that steals from your next hard day.
+      </div>
+      <div class="training-recommendation">
+        💡 Given your great recovery tonight, consider adding 2-3 short tempo efforts (10-15 min each) into your Zone 2 base. Your body is primed for it. Start before 9 AM to beat the 86° heat — hydrate 500ml/hour minimum.
       </div>
     </div>
 
