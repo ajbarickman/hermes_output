@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrew's Morning Briefing — April 9, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0f;
+    --card: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --text: #f0f0f5;
+    --text-dim: #8888a0;
+    --accent: #f5a623;
+    --accent2: #4fc3f7;
+    --accent3: #66bb6a;
+    --accent4: #ef5350;
+    --glow: rgba(245,166,35,0.3);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background gradient */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 20% 20%, rgba(245,166,35,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(79,195,247,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(102,187,106,0.04) 0%, transparent 50%);
+    animation: bgShift 20s ease-in-out infinite alternate;
+    z-index: -1;
+  }
+
+  @keyframes bgShift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-5%, -5%) rotate(3deg); }
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 2rem 0 3rem;
+    animation: fadeDown 0.8s ease-out;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .greeting {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .date {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 0%, #f5a623 50%, #4fc3f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: var(--text-dim);
+    margin-top: 0.5rem;
+    font-weight: 300;
+  }
+
+  /* Card grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    animation: fadeUp 1s ease-out 0.3s both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: cardIn 0.6s ease-out both;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .card:nth-child(1) { animation-delay: 0.4s; }
+  .card:nth-child(2) { animation-delay: 0.5s; }
+  .card:nth-child(3) { animation-delay: 0.6s; }
+  .card:nth-child(4) { animation-delay: 0.7s; }
+  .card:nth-child(5) { animation-delay: 0.8s; }
+  .card:nth-child(6) { animation-delay: 0.9s; }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card-label .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* Weather hero */
+  .weather-hero .card:nth-child(1) {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(245,166,35,0.08) 0%, rgba(79,195,247,0.05) 100%);
+  }
+
+  .temp-main {
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(180deg, #fff, #f5a623);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .temp-condition {
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    margin-top: 0.25rem;
+  }
+
+  .temp-feels {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-top: 0.25rem;
+    font-weight: 400;
+  }
+
+  .weather-details {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+  }
+
+  .weather-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .weather-stat .val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .weather-stat .label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+  }
+
+  /* Hourly chart */
+  .hourly-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 80px;
+    margin-top: 1rem;
+  }
+
+  .hourly-bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .hourly-bar .bar {
+    width: 100%;
+    border-radius: 4px 4px 2px 2px;
+    background: linear-gradient(180deg, var(--accent), rgba(245,166,35,0.3));
+    transition: height 1s ease-out;
+    min-height: 4px;
+  }
+
+  .hourly-bar .bar.cool {
+    background: linear-gradient(180deg, var(--accent2), rgba(79,195,247,0.3));
+  }
+
+  .hourly-bar .time-label {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .hourly-bar .temp-label {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+  }
+
+  /* Cycling card */
+  .cycling-insight {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text);
+    font-weight: 300;
+  }
+
+  .cycling-insight strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .training-recommendation {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(102,187,106,0.1);
+    border-left: 3px solid var(--accent3);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    color: var(--accent3);
+    font-weight: 500;
+  }
+
+  /* PowerSchool card */
+  .grade-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .grade-row:last-child { border: none; }
+
+  .grade-row .subject {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  .grade-row .grade {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .grade-row .grade.good { color: var(--accent3); }
+  .grade-row .grade.warn { color: var(--accent); }
+
+  /* Video discovery */
+  .video-item {
+    padding: 0.75rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    transition: background 0.2s;
+  }
+
+  .video-item:hover { background: rgba(255,255,255,0.05); }
+
+  .video-item .title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+
+  .video-item .meta {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 0.35rem;
+  }
+
+  .video-item .summary {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .video-item a {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.7rem;
+    color: var(--accent2);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .video-item a:hover { text-decoration: underline; }
+
+  /* Quote card */
+  .quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text);
+    font-weight: 300;
+  }
+
+  .quote-author {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  /* AOS metrics */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .metric {
+    text-align: center;
+    padding: 0.75rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: 10px;
+  }
+
+  .metric .value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .metric .value.green { color: var(--accent3); }
+  .metric .value.gold { color: var(--accent); }
+  .metric .value.blue { color: var(--accent2); }
+
+  .metric .unit {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+  }
+
+  /* Full-width card */
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
+  /* Sun/moon */
+  .celestial {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .celestial-item {
+    text-align: center;
+    flex: 1;
+    padding: 1rem;
+  }
+
+  .celestial-item .emoji {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .celestial-item .time {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .celestial-item .phase {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-top: 0.25rem;
+  }
+
+  /* Training zones visual */
+  .zone-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+    gap: 2px;
+  }
+
+  .zone-bar .zone {
+    flex: 1;
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  .zone-1 { background: #4fc3f7; }
+  .zone-2 { background: #66bb6a; }
+  .zone-3 { background: #f5a623; }
+  .zone-4 { background: #ef5350; }
+  .zone-5 { background: #ab47bc; }
+
+  .zone-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--card-border);
+    animation: fadeUp 1s ease-out 1.2s both;
+  }
+
+  .footer p {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  .footer .gen {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    margin-top: 0.5rem;
+    opacity: 0.5;
+  }
+
+  /* Pulse animation for live dot */
+  .pulse {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .date { font-size: 1.8rem; }
+    .temp-main { font-size: 3.5rem; }
+    .weather-hero .card:nth-child(1) { flex-direction: column; text-align: center; gap: 1.5rem; }
+    .weather-details { justify-content: center; }
+    .weather-stat { align-items: center; }
+    .metric-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .container { padding: 1rem 1rem 3rem; }
+  }
+
+  /* Stagger animation helper */
+  .stagger > * {
+    animation: fadeUp 0.5s ease-out both;
+  }
+  .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger > *:nth-child(5) { animation-delay: 0.5s; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="greeting">☀️ GOOD MORNING, ANDREW</div>
+    <div class="date">Thursday, April 9</div>
+    <div class="subtitle">Folsom, CA · Athlete Optimization System</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- Weather Hero -->
+    <div class="weather-hero">
+      <div class="card">
+        <div>
+          <div class="temp-main">86°</div>
+          <div class="temp-condition">☀️ Sunny</div>
+          <div class="temp-feels">Feels like 84° · Lows near 50°</div>
+        </div>
+        <div class="weather-details">
+          <div class="weather-stat">
+            <div class="val" style="color: var(--accent2)">4 mph</div>
+            <div class="label">Wind SE</div>
+          </div>
+          <div class="weather-stat">
+            <div class="val" style="color: var(--accent)">34%</div>
+            <div class="label">Humidity (PM)</div>
+          </div>
+          <div class="weather-stat">
+            <div class="val" style="color: var(--accent3)">0 in</div>
+            <div class="label">Precip</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Temperature Forecast Chart -->
+    <div class="card full-width">
+      <div class="card-label"><span class="dot" style="background: var(--accent)"></span> TEMPERATURE FORECAST</div>
+      <div class="hourly-chart" id="tempChart"></div>
+      <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; padding: 0 0.5rem;">
+        <span style="font-size: 0.6rem; color: #888;">Tomorrow: High 71° / Low 57°</span>
+        <span style="font-size: 0.6rem; color: #888;">Riding weather: ☀️ Excellent</span>
+      </div>
+    </div>
+
+    <!-- Celestial -->
+    <div class="card">
+      <div class="card-label"><span class="dot" style="background: var(--accent4)"></span> CELESTIAL</div>
+      <div class="celestial">
+        <div class="celestial-item">
+          <div class="emoji">🌅</div>
+          <div class="time">06:38</div>
+          <div class="phase">Sunrise</div>
+        </div>
+        <div class="celestial-item">
+          <div class="emoji">🌇</div>
+          <div class="time">19:35</div>
+          <div class="phase">Sunset</div>
+        </div>
+        <div class="celestial-item">
+          <div class="emoji">🌖</div>
+          <div class="time">70%</div>
+          <div class="phase">Waning Gibbous</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Training Card -->
+    <div class="card">
+      <div class="card-label"><span class="dot" style="background: var(--accent3)"></span> TODAY'S RIDING INSIGHT</div>
+      <div class="cycling-insight">
+        <strong>Zone 2 is your secret weapon.</strong><br>
+        At 55, your body recovers slower but adapts just as well. Zone 2 (65-75% FTP) builds mitochondrial density and fat oxidation without accumulating the fatigue that steals from your next hard day.
+      </div>
+      <div class="training-recommendation">
+        💡 Recommendation: Today's warm temps (86°) call for an early AM start. Aim for 60-90 minutes of Zone 2 before 9 AM to avoid heat stress. Hydrate 500ml/e hour.
+      </div>
+    </div>
+
+    <!-- Training Zones -->
+    <div class="card">
+      <div class="card-label"><span class="dot" style="background: gold"></span> POWER ZONES</div>
+      <div class="zone-bar">
+        <div class="zone zone-1" title="Z1 Active Recovery"></div>
+        <div class="zone zone-2" style="flex: 2;" title="Z2 Endurance — TODAY'S TARGET"></div>
+        <div class="zone zone-3" title="Z3 Tempo"></div>
+        <div class="zone zone-4" title="Z4 Threshold"></div>
+        <div class="zone zone-5" title="Z5 VO2 Max"></div>
+      </div>
+      <div class="zone-labels">
+        <span>Z1 < 69%</span>
+        <span>Z2 70-83%</span>
+        <span>Z3 84-97%</span>
+        <span>Z4 98-105%</span>
+        <span>Z5 106%+</span>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="card">
+      <div class="card-label"><span class="dot pulse" style="background: var(--accent)"></span> WORD OF THE DAY</div>
+      <div class="quote">
+        "The secret of getting ahead is getting started. The secret of getting started is breaking your complex overwhelming tasks into small manageable tasks, and then starting on the first one."
+      </div>
+      <div class="quote-author">— Mark Twain</div>
+    </div>
+
+    <!-- Health Check -->
+    <div class="card">
+      <div class="card-label"><span class="dot" style="background: var(--accent2)"></span> DAILY FOCUS</div>
+      <div class="stagger">
+        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">🚴 Training</span>
+          <span style="font-size: 0.75rem; color: var(--accent3); font-weight: 500;">Zone 2, 60-90 min</span>
+        </div>
+        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">🥗 Protein Target</span>
+          <span style="font-size: 0.75rem; color: var(--accent); font-weight: 500;">~130g progressive</span>
+        </div>
+        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">💧 Calories</span>
+          <span style="font-size: 0.75rem; color: var(--accent); font-weight: 500;">BMR 1844 + training</span>
+        </div>
+        <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">👨‍👦 Christian</span>
+          <span style="font-size: 0.75rem; color: var(--accent3); font-weight: 500;">All grades ✅</span>
+        </div>
+        <div style="padding: 0.5rem 0; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem;">💊 Health</span>
+          <span style="font-size: 0.75rem; color: var(--accent2); font-weight: 500;">Monitoring active</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Discovery -->
+    <div class="card full-width">
+      <div class="card-label"><span class="dot pulse" style="background: #ef5350"></span> 🎥 VIDEO DISCOVERY — CURATED FOR YOU TODAY</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+
+        <div class="video-item">
+          <div class="title">🤖 FULL Claude Code Tutorial for Beginners in 2026!</div>
+          <div class="meta">Tech With Tim · 15:10</div>
+          <div class="summary">You can search for Claude if you spell it correctly and then you should see this right here. You can put, you know, API references, things that you want it to always know when you spin up a new session and that you might share with other people...</div>
+          <a href="https://youtube.com/watch?v=qYqIhX9hTQk" target="_blank">▶ Watch on YouTube →</a>
+        </div>
+
+        <div class="video-item">
+          <div class="title">🚴 Fitness MASTERCLASS — TSS, CTL, ATL, TSB & Performance Management</div>
+          <div class="meta">Sarah Does Sass · 29:05</div>
+          <div class="summary">So if you perform that calculation and you take 80 which is your fitness minus your fatigue which is 100 that puts you at a negative 20. You do not want to be functioning at a negative 40 in terms of your TSB that's going to mean that you are very very tired...</div>
+          <a href="https://youtube.com/watch?v=erRufY93050" target="_blank">▶ Watch on YouTube →</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Generated by Hermes Agent · Athlete Optimization System v2.1</p>
+    <div class="gen">2026-04-09 05:30 AM PT</div>
+  </div>
+
+</div>
+
+<script>
+  // Animated temperature chart
+  const hourlyData = [
+    { time: '12 AM', temp: 60 },
+    { time: '3 AM', temp: 56 },
+    { time: '6 AM', temp: 52 },
+    { time: '9 AM', temp: 61 },
+    { time: '12 PM', temp: 76 },
+    { time: '3 PM', temp: 84 },
+    { time: '6 PM', temp: 81 },
+    { time: '9 PM', temp: 70 },
+  ];
+
+  const container = document.getElementById('tempChart');
+  const maxTemp = 90;
+  const minTemp = 45;
+  const range = maxTemp - minTemp;
+
+  hourlyData.forEach((h, i) => {
+    const barWrapper = document.createElement('div');
+    barWrapper.className = 'hourly-bar';
+
+    const tempLabel = document.createElement('div');
+    tempLabel.className = 'temp-label';
+    tempLabel.textContent = h.temp + '°';
+
+    const bar = document.createElement('div');
+    bar.className = 'bar' + (h.temp < 60 ? ' cool' : '');
+    const height = ((h.temp - minTemp) / range) * 100;
+    bar.style.height = '0px';
+
+    setTimeout(() => {
+      bar.style.height = height + '%';
+    }, 800 + i * 100);
+
+    const timeLabel = document.createElement('div');
+    timeLabel.className = 'time-label';
+    timeLabel.textContent = h.time;
+
+    barWrapper.appendChild(tempLabel);
+    barWrapper.appendChild(bar);
+    barWrapper.appendChild(timeLabel);
+    container.appendChild(barWrapper);
+  });
+
+  // Add subtle parallax on scroll
+  window.addEventListener('scroll', () => {
+    const scroll = window.scrollY;
+    document.body.style.setProperty('--scroll', scroll + 'px');
+  });
+</script>
+
+</body>
+</html>
